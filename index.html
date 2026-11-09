@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>은민균 | BCP 컨설팅 · 교육 · 강연</title>
+<meta name="description" content="공학박사·건축사 은민균. 중소기업·건설업 BCP(업무연속성계획) 컨설팅, 임직원 교육, 강연.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy:#0f2742; --navy-2:#173a5e; --accent:#c8962e; --ink:#1d2430;
+    --muted:#5b6675; --line:#e3e7ec; --bg-soft:#f5f7fa; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif;color:var(--ink);line-height:1.7;word-break:keep-all}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* 상단 메뉴 */
+  header{position:sticky;top:0;z-index:10;background:rgba(15,39,66,.97);color:var(--white)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:800;font-size:19px;letter-spacing:-.3px}
+  .logo span{color:var(--accent);font-weight:600;font-size:14px;margin-left:8px}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:15px}
+  .nav ul a{opacity:.85}
+  .nav ul a:hover{opacity:1;color:var(--accent)}
+
+  /* 첫 화면 */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:110px 0 100px}
+  .eyebrow{display:inline-block;color:var(--accent);font-weight:700;font-size:14px;letter-spacing:2px;margin-bottom:18px}
+  .hero h1{font-size:44px;line-height:1.3;font-weight:800;letter-spacing:-1px;margin-bottom:22px}
+  .hero p{font-size:18px;opacity:.85;max-width:640px;margin-bottom:38px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 28px;border-radius:6px;font-weight:700;font-size:15px}
+  .btn-primary{background:var(--accent);color:var(--navy)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .badges{display:flex;gap:28px;flex-wrap:wrap;margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.15);font-size:14px;opacity:.85}
+  .badges b{display:block;font-size:16px;color:var(--accent);opacity:1}
+
+  /* 공통 섹션 */
+  section{padding:96px 0}
+  .soft{background:var(--bg-soft)}
+  .sec-head{margin-bottom:48px}
+  .sec-head small{color:var(--accent);font-weight:700;letter-spacing:2px;font-size:13px}
+  .sec-head h2{font-size:32px;font-weight:800;letter-spacing:-.6px;margin-top:6px;color:var(--navy)}
+  .sec-head p{color:var(--muted);margin-top:10px;max-width:680px}
+
+  /* 서비스 */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:34px 30px;border-top:4px solid var(--navy)}
+  .card .num{color:var(--accent);font-weight:800;font-size:14px}
+  .card h3{font-size:21px;color:var(--navy);margin:8px 0 12px}
+  .card p{color:var(--muted);font-size:15px;margin-bottom:16px}
+  .card ul{list-style:none;font-size:14.5px}
+  .card li{padding:7px 0;border-top:1px dashed var(--line)}
+  .card li::before{content:"✓ ";color:var(--accent);font-weight:700}
+
+  /* 소개 */
+  .about{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+  .profile-box{background:var(--navy);color:var(--white);border-radius:10px;padding:36px}
+  .profile-box h3{font-size:26px;margin-bottom:4px}
+  .profile-box .role{color:var(--accent);font-weight:600;margin-bottom:22px}
+  .profile-box dl{font-size:14.5px}
+  .profile-box dt{opacity:.6;font-size:13px;margin-top:12px}
+  .about-text p{margin-bottom:16px;color:#384353;font-size:16.5px}
+  .about-text blockquote{border-left:4px solid var(--accent);padding:6px 0 6px 18px;margin:24px 0;color:var(--navy);font-weight:600;font-size:18px}
+
+  /* 경력 */
+  .career{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .c-group{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:28px 30px}
+  .c-group h3{font-size:17px;color:var(--navy);padding-bottom:12px;margin-bottom:8px;border-bottom:2px solid var(--navy)}
+  .c-group li{list-style:none;padding:8px 0;font-size:15px;border-bottom:1px solid var(--line);display:flex;gap:14px}
+  .c-group li:last-child{border-bottom:0}
+  .c-group .yr{color:var(--accent);font-weight:700;min-width:46px;font-size:14px}
+
+  /* 저서 */
+  .books{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .book{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
+  .book .cover{height:170px;display:flex;align-items:flex-end;padding:22px;color:var(--white);font-weight:800;font-size:19px;line-height:1.4}
+  .cv1{background:linear-gradient(160deg,#173a5e,#0f2742)}
+  .cv2{background:linear-gradient(160deg,#5a4a2a,#2f2716)}
+  .cv3{background:linear-gradient(160deg,#2f5d62,#183538)}
+  .book .info{padding:22px}
+  .book .meta{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+  .book p{font-size:14.5px;color:#384353}
+  .tag{display:inline-block;background:#fbf3e2;color:#8a6414;font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:4px;margin-bottom:10px}
+
+  /* 연락처 */
+  .contact{background:var(--navy);color:var(--white);text-align:center}
+  .contact h2{font-size:32px;font-weight:800;margin-bottom:14px}
+  .contact p{opacity:.8;margin-bottom:34px}
+  .contact-grid{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+  .contact-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:18px 26px;min-width:220px}
+  .contact-item small{display:block;color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:1px}
+  footer{background:#0a1b2f;color:rgba(255,255,255,.5);text-align:center;font-size:13px;padding:22px}
+
+  @media(max-width:860px){
+    .nav ul{display:none}
+    .hero{padding:80px 0 70px}
+    .hero h1{font-size:32px}
+    .cards,.books,.career,.about{grid-template-columns:1fr}
+    section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">은민균<span>BCP 컨설팅</span></a>
+    <ul>
+      <li><a href="#services">서비스</a></li>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#career">경력</a></li>
+      <li><a href="#books">저서</a></li>
+      <li><a href="#contact">연락처</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 첫 화면 -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">BUSINESS CONTINUITY PLANNING</span>
+    <h1>위기에도 멈추지 않는 회사,<br>실행 가능한 BCP로 만듭니다</h1>
+    <p>재난·사고·공급망 단절 속에서도 핵심 업무를 지켜 내는 업무연속성계획(BCP). 현장을 아는 건축·재난안전 전문가가 수립부터 교육까지 함께합니다.</p>
+    <div class="btns">
+      <a href="#contact" class="btn btn-primary">컨설팅·강연 문의</a>
+      <a href="#services" class="btn btn-ghost">서비스 보기</a>
+    </div>
+    <div class="badges">
+      <div><b>공학박사 · 건축사 · 기업재난관리자</b>건축·도시·재난안전</div>
+      <div><b>BCP 저서 2권</b>건설업 · 중소기업</div>
+      <div><b>행정안전부</b>재난관리평가위원</div>
+      <div><b>2026 세종도서</b>교양 부문 선정</div>
+    </div>
+  </div>
+</div>
+
+<!-- 서비스 -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>SERVICES</small>
+      <h2>제공 서비스</h2>
+      <p>기업의 규모와 업종에 맞춰, 문서로만 남는 계획이 아니라 실제로 작동하는 BCP를 만듭니다.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>BCP 수립 컨설팅</h3>
+        <p>업무 영향 분석부터 복구 전략, 실행 매뉴얼까지 단계별로 함께 수립합니다.</p>
+        <ul>
+          <li>업무영향분석(BIA) · 위험평가</li>
+          <li>핵심업무 · 목표복구시간 설정</li>
+          <li>복구 전략 및 비상 대응 절차</li>
+          <li>건설업 · 중소기업 특화</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>임직원 BCP 교육</h3>
+        <p>경영진부터 실무자까지, 대상별 눈높이에 맞춘 실전형 교육을 제공합니다.</p>
+        <ul>
+          <li>CEO · 경영진 대상 2시간 특강</li>
+          <li>실무 담당자 수립 실습 교육</li>
+          <li>모의훈련 시나리오 설계</li>
+          <li>공공기관 재난관리 역량 강화</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>강연 · 특강</h3>
+        <p>기업·공공기관·학교를 대상으로 위기관리와 공간·건축 인문학을 강연합니다.</p>
+        <ul>
+          <li>『망하지 않는 회사의 조건』 저자 강연</li>
+          <li>『공간에 담긴 인간의 이야기』 저자 특강</li>
+          <li>건축학과 진로 탐색 강연</li>
+          <li>도시 · 재난안전 정책 강연</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 소개 -->
+<section id="about" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>ABOUT</small>
+      <h2>소개</h2>
+    </div>
+    <div class="about">
+      <div class="profile-box">
+        <h3>은민균</h3>
+        <div class="role">공학박사 · 건축사 · 기업재난관리자</div>
+        <dl>
+          <dt>소속</dt>
+          <dd>우석대학교 건축인테리어디자인학과 교수</dd>
+          <dt>연구</dt>
+          <dd>도시개발 및 재난안전연구소 소장</dd>
+          <dt>전문 분야</dt>
+          <dd>업무연속성계획(BCP) · 재난관리 · 건축 설계 · 도시계획</dd>
+        </dl>
+      </div>
+      <div class="about-text">
+        <p>1999년부터 우석대학교에서 건축을 가르치며, 건축 설계와 도시계획, 재난안전 분야에서 연구와 실무를 이어 왔습니다.</p>
+        <p>행정안전부 재난관리평가위원과 공공기관 재난관리 역량강화 컨설팅위원으로 활동하며 현장의 위기 대응 체계를 직접 점검해 왔고, 이 경험을 바탕으로 건설업과 중소기업을 위한 BCP 수립 가이드를 집필했습니다.</p>
+        <blockquote>"BCP는 서류가 아니라, 위기의 순간에 회사를 지키는 실행 계획입니다."</blockquote>
+        <p>건축이 사람의 삶을 담는 그릇이듯, BCP는 기업의 지속을 담는 구조입니다. 각 기업의 현실에 맞는, 실제로 작동하는 계획을 함께 만들어 갑니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 경력 -->
+<section id="career">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>CAREER</small>
+      <h2>주요 경력</h2>
+    </div>
+    <div class="career">
+      <div class="c-group">
+        <h3>재난안전 · BCP</h3>
+        <ul>
+          <li><span class="yr">현재</span>행정안전부 재난관리평가위원</li>
+          <li><span class="yr">2026</span>행정안전부 재난관리평가 역량강화 컨설팅위원</li>
+          <li><span class="yr">현재</span>도시개발 및 재난안전연구소 소장</li>
+          <li><span class="yr">2025</span>『건설업 BCP수립 가이드라인』 집필</li>
+        </ul>
+      </div>
+      <div class="c-group">
+        <h3>공공 자문 · 위원회</h3>
+        <ul>
+          <li><span class="yr">역임</span>전남 · 울산 · 충북 공공건축가</li>
+          <li><span class="yr">역임</span>충청북도 도시계획위원 · 도시재생위원</li>
+          <li><span class="yr">역임</span>전라북도 건축위원회 위원</li>
+        </ul>
+      </div>
+      <div class="c-group">
+        <h3>학계 · 학회</h3>
+        <ul>
+          <li><span class="yr">1999~</span>우석대학교 건축인테리어디자인학과 교수</li>
+          <li><span class="yr">역임</span>우석대학교 대학평의회 의장</li>
+          <li><span class="yr">역임</span>초대 진천캠퍼스 추진단장</li>
+          <li><span class="yr">역임</span>현대한옥학회 부회장</li>
+          <li><span class="yr">역임</span>대한건축학회 건축사제도개선위원장</li>
+        </ul>
+      </div>
+      <div class="c-group">
+        <h3>설계 · 계획 실적</h3>
+        <ul>
+          <li><span class="yr">1998</span>상암지구 개발계획 현상공모 당선</li>
+          <li><span class="yr">1998</span>부산 정관신도시 개발 현상공모 당선</li>
+          <li><span class="yr">자격</span>건축사 · 공학박사 · 기업재난관리자</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 저서 -->
+<section id="books" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <small>BOOKS</small>
+      <h2>저서</h2>
+    </div>
+    <div class="books">
+      <div class="book">
+        <div class="cover cv1">망하지 않는<br>회사의 조건</div>
+        <div class="info">
+          <span class="tag">2026 출간</span>
+          <div class="meta">중소기업을 위한 BCP 실전 수립 가이드</div>
+          <p>위기에도 살아남는 회사의 조건을 BCP 관점에서 정리한 중소기업 실전 안내서입니다.</p>
+        </div>
+      </div>
+      <div class="book">
+        <div class="cover cv2">건설업<br>BCP수립 가이드라인</div>
+        <div class="info">
+          <span class="tag">2025.10</span>
+          <div class="meta">북펀딩</div>
+          <p>건설 현장의 특성을 반영한 업무연속성계획 수립 절차와 실무 기준을 담았습니다.</p>
+        </div>
+      </div>
+      <div class="book">
+        <div class="cover cv3">공간에 담긴<br>인간의 이야기</div>
+        <div class="info">
+          <span class="tag">2026 세종도서 선정</span>
+          <div class="meta">아리북스 · 2026.01</div>
+          <p>건축과 공간을 사회적 가치와 인간의 서사를 담는 그릇으로 읽어 낸 교양서입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 연락처 -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>컨설팅 · 교육 · 강연 문의</h2>
+    <p>기관명, 희망 일정, 대상 인원과 주제를 함께 보내 주시면 빠르게 회신드리겠습니다.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><small>EMAIL</small>mkeun1961@gmail.com</div>
+      <div class="contact-item"><small>문의 분야</small>BCP 컨설팅 · 임직원 교육 · 강연</div>
+    </div>
+    <a href="mailto:mkeun1961@gmail.com?subject=%5B%EB%AC%B8%EC%9D%98%5D%20BCP%20%EC%BB%A8%EC%84%A4%ED%8C%85%C2%B7%EA%B0%95%EC%97%B0" class="btn btn-primary">이메일로 문의하기</a>
+  </div>
+</section>
+
+<footer>© 은민균. All rights reserved.</footer>
+
+</body>
+</html>
