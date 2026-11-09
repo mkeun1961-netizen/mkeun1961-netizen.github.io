@@ -60,6 +60,7 @@
   /* 소개 */
   .about{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
   .profile-box{background:var(--navy);color:var(--white);border-radius:10px;padding:36px}
+  .profile-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:8px;margin-bottom:24px;border:3px solid rgba(200,150,46,.6);background:#173a5e}
   .profile-box h3{font-size:26px;margin-bottom:4px}
   .profile-box .role{color:var(--accent);font-weight:600;margin-bottom:22px}
   .profile-box dl{font-size:14.5px}
@@ -194,6 +195,7 @@
     </div>
     <div class="about">
       <div class="profile-box">
+        <img src="profile.jpg" alt="은민균 프로필 사진" class="profile-photo" onerror="this.style.display='none'">
         <h3>은민균</h3>
         <div class="role">공학박사 · 건축사 · 기업재난관리자</div>
         <dl>
